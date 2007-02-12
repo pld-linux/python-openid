@@ -2,7 +2,7 @@
 %define		module	openid
 
 Summary:	OpenID consumer and server library for Python
-Summary(pl.UTF-8):   Biblioteka konsumenta i serwera OpenID dla Pythona
+Summary(pl.UTF-8):	Biblioteka konsumenta i serwera OpenID dla Pythona
 Name:		python-%{module}
 Version:	1.2.0
 Release:	1
