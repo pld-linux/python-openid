@@ -11,7 +11,7 @@ URL:		http://www.openidenabled.com/
 BuildRequires:	python >= 1:2.5
 BuildRequires:	python-devel 
 BuildRequires:	rpm-pythonprov
-BuildRequires:	rpmbuild(macros) >= 1.219
+BuildRequires:	rpmbuild(macros) >= 1.710
 %pyrequires_eq	python
 Requires:	python-urljr >= 1.0.0
 Requires:	python-yadis >= 1.1.0
