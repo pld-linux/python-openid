@@ -1,6 +1,11 @@
+#
+# Conditional build:
+%bcond_without	doc	# don't build doc
+
+%define 	module	openid
 Summary:	OpenID consumer and server library for Python
 Summary(pl.UTF-8):	Biblioteka konsumenta i serwera OpenID dla Pythona
-Name:		python-openid
+Name:		python-%{module}
 Version:	2.2.5
 Release:	1
 License:	Apache
@@ -11,6 +16,9 @@ URL:		https://github.com/openid/python-openid
 BuildRequires:	python >= 1:2.5
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.714
+%if %{with doc}
+BuildRequires:	epydoc
+%endif
 Requires:	python-urljr >= 1.0.0
 Requires:	python-yadis >= 1.1.0
 BuildArch:	noarch
@@ -22,15 +30,28 @@ OpenID consumer and server library for Python.
 %description -l pl.UTF-8
 Biblioteka konsumenta i serwera OpenID dla Pythona.
 
+%package apidocs
+Summary:	%{module} API documentation
+Summary(pl.UTF-8):	Dokumentacja API %{module}
+Group:		Documentation
+
+%description apidocs
+API documentation for %{module}.
+
+%description apidocs -l pl.UTF-8
+Dokumentacja API %{module}.
+
 %prep
 %setup -q
 
 %build
 %py_build
+%if %{with doc}
+sh admin/makedoc
+%endif
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
 %py_install
 
 %py_ocomp $RPM_BUILD_ROOT%{py_sitescriptdir}
@@ -42,6 +63,12 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README doc/*
-%{py_sitescriptdir}/openid
-%{py_sitescriptdir}/python_openid-*.egg-info
+%doc README
+%{py_sitescriptdir}/%{module}
+%{py_sitescriptdir}/python_openid-%{version}-py*.egg-info
+
+%if %{with doc}
+%files apidocs
+%defattr(644,root,root,755)
+%doc doc/*
+%endif
