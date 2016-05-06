@@ -1,21 +1,19 @@
 Summary:	OpenID consumer and server library for Python
 Summary(pl.UTF-8):	Biblioteka konsumenta i serwera OpenID dla Pythona
 Name:		python-openid
-Version:	2.2.4
-Release:	4
+Version:	2.2.5
+Release:	1
 License:	Apache
 Group:		Libraries/Python
-Source0:	http://openidenabled.com/files/python-openid/packages/%{name}-%{version}.tar.bz2
-# Source0-md5:	2766dccfecf241c94cc1e8eca2814913
-URL:		http://www.openidenabled.com/
+Source0:	https://github.com/openid/python-openid/archive/%{version}/%{name}-%{version}.tar.gz
+# Source0-md5:	4f3c32944f7eef48e32fd36d185fa05c
+URL:		https://github.com/openid/python-openid
 BuildRequires:	python >= 1:2.5
-BuildRequires:	python-devel 
 BuildRequires:	rpm-pythonprov
-BuildRequires:	rpmbuild(macros) >= 1.710
-%pyrequires_eq	python
+BuildRequires:	rpmbuild(macros) >= 1.714
 Requires:	python-urljr >= 1.0.0
 Requires:	python-yadis >= 1.1.0
-BuildArch:      noarch
+BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
