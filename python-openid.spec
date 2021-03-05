@@ -10,7 +10,7 @@ Summary:	OpenID consumer and server library for Python
 Summary(pl.UTF-8):	Biblioteka konsumenta i serwera OpenID dla Pythona
 Name:		python-%{module}
 Version:	2.2.5
-Release:	1
+Release:	2
 License:	Apache
 Group:		Libraries/Python
 Source0:	https://github.com/openid/python-openid/archive/%{version}/%{name}-%{version}.tar.gz
